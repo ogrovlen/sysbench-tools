@@ -7,6 +7,7 @@ SIZE=$2
 TESTCONFIG=$3
 
 # Run short test
+echo $TESTCONFIG
 for TEST in point_select read_only update_non_index read_write
 do
   echo $TEST  
