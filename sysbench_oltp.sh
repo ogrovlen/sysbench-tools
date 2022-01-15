@@ -6,7 +6,7 @@ TIME=$3
 SIZE=$4
 MAXTHREADS=$5
 TESTCONFIG=$6
-TESTDIR=${HOME}/test/$1_$6
+TESTDIR=${HOME}/test/$6_$1
 
 mkdir $TESTDIR
 i=1
