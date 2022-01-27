@@ -10,5 +10,6 @@ TESTCONFIG=$7
 TESTDIR=${HOME}/test/$7_$1
 
 mkdir $TESTDIR
-sysbench --threads=$THREADS --time=$TIME --warmup-time=30 --report-interval=10 --rand-type=uniform --mysql-host=$HOST --mysql-user=mysql --mysql-password=mysql --mysql-ssl=REQUIRED --tables=$TABLES  --table-size=$ROWS sysbench/src/lua/oltp_${TEST}.lua run > $TESTDIR/sysbench_$THREADS.out
+echo "sysbench --threads=$THREADS --time=$TIME --warmup-time=30 --report-interval=10 --rand-type=uniform --mysql-host=$HOST --mysql-user=mysql --mysql-password=mysql --mysql-ssl=REQUIRED --tables=$TABLES  --table-size=$ROWS sysbench/src/lua/oltp_${TEST}.lua run" > $TESTDIR/sysbench_$THREADS-long.out
+sysbench --threads=$THREADS --time=$TIME --warmup-time=30 --report-interval=10 --rand-type=uniform --mysql-host=$HOST --mysql-user=mysql --mysql-password=mysql --mysql-ssl=REQUIRED --tables=$TABLES  --table-size=$ROWS sysbench/src/lua/oltp_${TEST}.lua run >> $TESTDIR/sysbench_$THREADS-long.out
 
