@@ -6,7 +6,8 @@ HOST=$1
 TESTCONFIG=$2
 
 echo $TESTCONFIG
-if [[ $TESTCONFIG == mds* ]] then
+if [[ $TESTCONFIG == mds* ]]
+then
    ssh -i .ssh/oysteing-ssh.pem $HOST cat /etc/sysconfig/mysql
 fi
 
