@@ -10,7 +10,7 @@ TESTDIR=${HOME}/test/${TESTCONFIG}_${DB}
 
 mkdir $TESTDIR
 echo $TESTDIR
-remysql --host=$HOST -umysql -pMySQL\#123 -e 'select * from performance_schema.global_variables' > $TESTDIR/global.cnf
+mysql --host=$HOST -umysql -pMySQL\#123 -e 'select * from performance_schema.global_variables' > $TESTDIR/global.cnf
 # Warmup
 sysbench /BMK/sb_exec/lua/TPCC-dim.lua --db-driver=mysql --threads=128 --scale=$SCALE --time=$TIME --rand-type=uniform --mysql-host=$HOST --mysql-user=mysql --mysql-password=mysql --mysql-ssl=REQUIRED --mysql-db=$DB --tables=1 --events=0 --thread-init-timeout=0 --rate=0 --force_null=1 run > /dev/null
 i=1
